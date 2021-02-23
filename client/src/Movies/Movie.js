@@ -8,7 +8,6 @@ export default function Movie(props) {
 
 	let { id } = useParams();
 	// Change ^^^ that line and use a hook to obtain the :id parameter from the URL
-	console.log('id: ', id);
 
 	useEffect(() => {
 		axios
@@ -26,7 +25,9 @@ export default function Movie(props) {
 	}, [id]);
 
 	// Uncomment this only when you have moved on to the stretch goals
-	// const saveMovie = evt => { }
+	const saveMovie = (evt) => {
+		props.addToSavedList(movie);
+	};
 
 	if (!movie) {
 		return <div>Loading movie information...</div>;
@@ -37,7 +38,9 @@ export default function Movie(props) {
 			<div className='movie-card'>
 				<MovieCard movie={movie} />
 			</div>
-			<div className='save-button'>Save</div>
+			<div className='save-button' onClick={saveMovie}>
+				Save
+			</div>
 		</div>
 	);
 }
