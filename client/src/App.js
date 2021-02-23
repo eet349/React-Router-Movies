@@ -40,7 +40,6 @@ export default function App() {
 				}
 			/>
 
-			{/* <div>Replace this Div with your Routes</div> */}
 			<Switch>
 				<Route exact path='/'>
 					<MovieList movies={movieList} />
